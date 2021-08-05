@@ -1,0 +1,62 @@
+<page-header [title]="'List'" [subtitle]="'Universitas'" [nav]="'cabang'" class="bg-pink-600">
+</page-header>
+
+<section>
+  <div fxLayout="row wrap" fxLayoutGap="8px grid">
+    <div fxFlex="100" fxFlex.lt-sm="100">
+      <mat-card>
+        <mat-form-field class="m-r-8" style="width: 90%;">
+          <input matInput [(ngModel)]="query.q" name="q" placeholder="Cari dengan nama"
+                 style="width: 100%;">
+        </mat-form-field>
+        <button class="m-r-3" mat-raised-button color="primary" (click)="search()">Cari</button>
+        <button class="layout-row layout-align-end-start m-l-4" mat-raised-button color="accent"
+                (click)="tambah()">Tambah</button>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<ng-template #logoTmpl let-row let-index="index" let-col="colDef"
+             style="background-color:rgb(211, 108, 125)">
+  <div *ngIf="row.photos.length != 0">
+    <img [src]="row.photos[0].link" alt="avatar" width="150" class="matero-avatar">
+  </div>
+</ng-template>
+
+<mtx-grid #grid [data]="list"
+          [rowStriped]="true"
+          [columns]="columns"
+          [length]="total"
+          [loading]="isLoading"
+          [pageSize]="query.size"
+          [expandable]="true"
+          [expansionTemplate]="expansionDetail"
+          [showPaginator]="false">
+</mtx-grid>
+<mat-paginator [length]="total" [pageSize]="query.size" [pageSizeOptions]="pageSizeOptions"
+               (page)="getNextPage($event)">
+</mat-paginator>
+<ng-template #expansionDetail let-row>
+  <html style="width: 100%">
+
+  <mtx-grid [data]="row.m_fakultas"
+            [columns]="columnDetailFakultas"
+            [loading]="isLoading"
+            [expandable]="true"
+            [expansionTemplate]="expansionDetailProdi"
+            [showPaginator]="false">
+  </mtx-grid>
+
+  </html>
+</ng-template>
+<ng-template #expansionDetailProdi let-row>
+  <html style="width: 100%">
+  <mtx-grid [data]="row.m_prodis"
+            [columns]="columnDetailProdi"
+            [loading]="isLoading"
+            [showPaginator]="false">
+  </mtx-grid>
+
+  </html>
+</ng-template>

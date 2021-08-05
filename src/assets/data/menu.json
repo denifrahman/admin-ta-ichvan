@@ -1,0 +1,42 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard",
+      "badge": {
+        "color": "red-500",
+        "value": "5"
+      }
+    },
+    {
+      "route": "master",
+      "name": "master",
+      "type": "sub",
+      "icon": "dashboard",
+      "children": [
+        {
+          "route": "universitas",
+          "name": "Universitas",
+          "type": "link"
+        },
+        {
+          "route": "fakultas",
+          "name": "Fakultas",
+          "type": "link"
+        },
+        {
+          "route": "prodi",
+          "name": "Prodi",
+          "type": "link"
+        },
+        {
+          "route": "agenda",
+          "name": "Agenda",
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}

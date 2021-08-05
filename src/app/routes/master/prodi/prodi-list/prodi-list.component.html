@@ -1,0 +1,56 @@
+<page-header [title]="'List'" [subtitle]="'Prodi'" [nav]="'cabang'" class="bg-pink-600">
+</page-header>
+
+<section>
+  <div fxLayout="row wrap" fxLayoutGap="8px grid">
+    <div fxFlex="100" fxFlex.lt-sm="100">        
+        <button class="layout-row layout-align-end-start m-b-8" mat-raised-button color="accent" style="float:right;"
+                (click)="tambah()">Tambah</button>
+    </div>
+    <!-- <div fxFlex="10" fxFlex.lt-sm="100">
+      <mat-card>
+        <form class="mat-form-field">
+          <div style="float: right;">
+            <button class="layout-row layout-align-end-start" mat-raised-button color="accent"
+                    (click)="tambah()">Tambah</button>
+          </div>
+        </form>
+      </mat-card>
+    </div> -->
+  </div>
+</section>
+
+<ng-template #logoTmpl let-row let-index="index" let-col="colDef"
+             style="background-color:rgb(211, 108, 125)">
+  <div *ngIf="row.photos.length != 0">
+    <img [src]="row.photos[0].link" alt="avatar" width="150" class="matero-avatar">
+  </div>
+</ng-template>
+
+<mtx-grid [data]="list"
+          [showToolbar]="true"
+          [showColumnMenuButton]="false"
+          [columns]="columns"
+          [length]="total"
+          [loading]="isLoading"
+          [pageSize]="query.size"
+          [sidebarTemplate]="toolbarTpl"
+          [showPaginator]="false" [toolbarTemplate]="toolbarTpl">
+</mtx-grid>
+<mat-paginator [length]="total" [pageSize]="query.size" [pageSizeOptions]="pageSizeOptions"
+               (page)="getNextPage($event)">
+</mat-paginator>
+<ng-template #toolbarTpl>
+  <div fxFlex="100" fxFlex.lt-sm="100">
+    <div fxLayout="row wrap" fxLayoutGap="8px grid">
+      <div fxFlex="100" fxFlex.lt-sm="100">
+
+        <mat-form-field class="m-r-8" style="width: 60%;">
+          <input matInput [(ngModel)]="query.q" name="q" placeholder="Cari dengan nama"
+                 style="width: 100%;">
+        </mat-form-field>
+        <button class="m-r-3" mat-raised-button color="primary" (click)="search()">Cari</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
