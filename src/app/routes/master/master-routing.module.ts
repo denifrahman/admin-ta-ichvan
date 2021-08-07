@@ -11,6 +11,9 @@ import { MasterProdiProdiListComponent } from './prodi/prodi-list/prodi-list.com
 import { MasterUniversitasUniversitasAddComponent } from './universitas/universitas-add/universitas-add.component';
 import { MasterUniversitasUniversitasEditComponent } from './universitas/universitas-edit/universitas-edit.component';
 import { MasterUniversitasUniversitasListComponent } from './universitas/universitas-list/universitas-list.component';
+import { MasterUserAddComponent } from './user/user-add/user-add.component';
+import { MasterUserEditComponent } from './user/user-edit/user-edit.component';
+import { MasterUserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
   { path: 'agenda', component: MasterAgendaAgendaListComponent },
@@ -23,6 +26,9 @@ const routes: Routes = [
   { path: 'prodi', component: MasterProdiProdiListComponent },
   { path: 'prodi-add', component: MasterProdiProdiAddComponent },
   { path: 'prodi-edit', component: MasterProdiProdiEditComponent },
+  { path: 'user-edit', component: MasterUserEditComponent },
+  { path: 'user-add', component: MasterUserAddComponent },
+  { path: 'user', component: MasterUserListComponent },
 ];
 
 @NgModule({

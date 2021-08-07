@@ -62,4 +62,20 @@ export class MasterService {
   deleteProdi(id: string) {
     return this.http.delete(environment.API + '/prodi/' + id);
   }
+
+  findAllUser(param) {
+    return this.http.get(environment.API + '/users', { params: param });
+  }
+  saveUser(body) {
+    return this.http.post(environment.API + '/register', body);
+  }
+  updateUser(body) {
+    return this.http.put(environment.API + '/user', body);
+  }
+  findByIdUser(param) {
+    return this.http.get(environment.API + '/users', { params: param });
+  }
+  deleteUser(id) {
+    return this.http.delete(environment.API + '/user/' + id);
+  }
 }

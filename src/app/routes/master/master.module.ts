@@ -13,9 +13,12 @@ import { MasterProdiProdiEditComponent } from './prodi/prodi-edit/prodi-edit.com
 import { MasterAgendaAgendaEditComponent } from './agenda/agenda-edit/agenda-edit.component';
 import { MasterAgendaAgendaListComponent } from './agenda/agenda-list/agenda-list.component';
 import { MasterAgendaAgendaAddComponent } from './agenda/agenda-add/agenda-add.component';
+import { MasterUserListComponent } from './user/user-list/user-list.component';
+import { MasterUserAddComponent } from './user/user-add/user-add.component';
+import { MasterUserEditComponent } from './user/user-edit/user-edit.component';
 
 const COMPONENTS = [];
-const COMPONENTS_DYNAMIC = [MasterUniversitasUniversitasListComponent, MasterUniversitasUniversitasAddComponent, MasterFakultasFakultasEditComponent, MasterUniversitasUniversitasEditComponent, MasterFakultasFakultasAddComponent, MasterFakultasFakultasListComponent, MasterProdiProdiListComponent, MasterProdiProdiAddComponent, MasterProdiProdiEditComponent, MasterAgendaAgendaEditComponent, MasterAgendaAgendaListComponent, MasterAgendaAgendaAddComponent];
+const COMPONENTS_DYNAMIC = [MasterUniversitasUniversitasListComponent, MasterUniversitasUniversitasAddComponent, MasterFakultasFakultasEditComponent, MasterUniversitasUniversitasEditComponent, MasterFakultasFakultasAddComponent, MasterFakultasFakultasListComponent, MasterProdiProdiListComponent, MasterProdiProdiAddComponent, MasterProdiProdiEditComponent, MasterAgendaAgendaEditComponent, MasterAgendaAgendaListComponent, MasterAgendaAgendaAddComponent, MasterUserListComponent, MasterUserAddComponent, MasterUserEditComponent];
 
 @NgModule({
   imports: [

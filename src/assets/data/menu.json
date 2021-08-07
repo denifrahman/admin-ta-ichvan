@@ -17,6 +17,11 @@
       "icon": "dashboard",
       "children": [
         {
+          "route": "user",
+          "name": "User",
+          "type": "link"
+        },
+        {
           "route": "universitas",
           "name": "Universitas",
           "type": "link"

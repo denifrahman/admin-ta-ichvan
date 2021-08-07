@@ -1,12 +1,11 @@
-<page-header [title]="'List'" [subtitle]="'Prodi'" [nav]="'cabang'" class="bg-pink-600">
+<page-header [title]="'List'" [subtitle]="'User'" [nav]="'cabang'" class="bg-pink-600">
 </page-header>
 
 <section>
   <div fxLayout="row wrap" fxLayoutGap="8px grid">
     <div fxFlex="100" fxFlex.lt-sm="100">
-      <button class="layout-row layout-align-end-start m-b-8" mat-raised-button color="accent"
-              style="float: right;"
-              (click)="tambah()">Tambah</button>
+        <button class="layout-row layout-align-end-start m-b-8" mat-raised-button color="accent" style="float: right;"
+                (click)="tambah()">Tambah</button>
     </div>
     <!-- <div fxFlex="10" fxFlex.lt-sm="100">
       <mat-card>
@@ -22,7 +21,7 @@
 </section>
 
 <ng-template #logoTmpl let-row let-index="index" let-col="colDef"
-             style="background-color: red;">
+             style="background-color: rgb(224, 49, 49);">
   <div *ngIf="row.photos.length != 0">
     <img [src]="row.photos[0].link" alt="avatar" width="150" class="matero-avatar">
   </div>
