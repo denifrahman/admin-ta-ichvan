@@ -69,11 +69,11 @@ export class MasterService {
   saveUser(body) {
     return this.http.post(environment.API + '/register', body);
   }
-  updateUser(body) {
-    return this.http.put(environment.API + '/user', body);
+  updateUser(id, body) {
+    return this.http.put(environment.API + '/user/' + id, body);
   }
   findByIdUser(param) {
-    return this.http.get(environment.API + '/users', { params: param });
+    return this.http.get(environment.API + '/user', { params: param });
   }
   deleteUser(id) {
     return this.http.delete(environment.API + '/user/' + id);

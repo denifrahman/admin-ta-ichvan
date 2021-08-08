@@ -1,0 +1,54 @@
+<page-header [title]="'Agenda'" [subtitle]="''" [nav]="'cabang'" class="bg-pink-600">
+</page-header>
+
+<section>
+  <div fxLayout="row wrap" fxLayoutGap="8px grid">
+    <div fxFlex="100" fxFlex.lt-sm="100">
+      <button class="layout-row layout-align-end-start m-b-8" mat-raised-button color="primary"
+              style="float: right;"
+              (click)="tambah('universitas')">Tambah Universitas</button>
+      <button class="layout-row layout-align-end-start m-b-8 m-r-8" mat-raised-button
+              color="secondary"
+              style="float: right;"
+              (click)="tambah('fakultas')">Tambah Fakultas</button>
+      <button class="layout-row layout-align-end-start m-b-8 m-r-8" mat-raised-button color="accent"
+              style="float: right;"
+              (click)="tambah('prodi')">Tambah Prodi</button>
+    </div>
+  </div>
+</section>
+
+<ng-template #logoTmpl let-row let-index="index" let-col="colDef"
+             style="background-color: rgb(224, 49, 49);">
+  <div *ngIf="row.photos.length != 0">
+    <img [src]="row.photos[0].link" alt="avatar" width="150" class="matero-avatar">
+  </div>
+</ng-template>
+
+<mtx-grid [data]="list"
+          [showToolbar]="true"
+          [showColumnMenuButton]="false"
+          [columns]="columns"
+          [length]="total"
+          [loading]="isLoading"
+          [pageSize]="queryUniv.size"
+          [sidebarTemplate]="toolbarTpl"
+          [showPaginator]="false" [toolbarTemplate]="toolbarTpl">
+</mtx-grid>
+<mat-paginator [length]="total" [pageSize]="queryUniv.size" [pageSizeOptions]="pageSizeOptions"
+               (page)="getNextPage($event)">
+</mat-paginator>
+<ng-template #toolbarTpl>
+  <div fxFlex="100" fxFlex.lt-sm="100">
+    <div fxLayout="row wrap" fxLayoutGap="8px grid">
+      <div fxFlex="100" fxFlex.lt-sm="100">
+
+        <mat-form-field class="m-r-8" style="width: 60%;">
+          <input matInput [(ngModel)]="queryUniv.q" name="q" placeholder="Cari dengan nama"
+                 style="width: 100%;">
+        </mat-form-field>
+        <button class="m-r-3" mat-raised-button color="primary" (click)="search()">Cari</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

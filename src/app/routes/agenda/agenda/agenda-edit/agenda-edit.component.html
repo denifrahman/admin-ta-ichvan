@@ -1,0 +1,171 @@
+<page-header [title]="'Edit Agenda'" [subtitle]="nama" [nav]="'cabang'" class="bg-pink-600">
+</page-header>
+
+<mat-card>
+  <mat-card-title>{{nama | uppercase}}</mat-card-title>
+  <form [formGroup]="reactiveForm2" class="form-field-full">
+    <div fxLayout="row wrap" fxLayoutGap="8px grid">
+
+      <div fxFlex="100" fxFlex.lt-sm="100" class="matero-col">
+        <div fxLayout="row wrap" fxLayoutGap="8px grid">
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <mat-form-field>
+              <mat-label>Nama</mat-label>
+              <input matInput placeholder="Nama" formControlName="nama"
+                     required>
+              <mat-error *ngIf="reactiveForm2.get('nama').invalid">
+                {{'validations.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <mat-form-field>
+              <mat-label>Kode</mat-label>
+              <input matInput placeholder="Kode" formControlName="kode"
+                     required>
+              <mat-error *ngIf="reactiveForm2.get('kode').invalid">
+                {{'validations.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.lt-sm="100" class="matero-col">
+        <div fxLayout="row wrap" fxLayoutGap="8px grid">
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <mat-form-field>
+              <mat-placeholder>Tanggal Mulai</mat-placeholder>
+              <mat-datetimepicker-toggle [for]="tanggal_mulai" matSuffix>
+              </mat-datetimepicker-toggle>
+              <mat-datetimepicker #tanggal_mulai [openOnFocus]="true" startView="month"
+                                  [timeInterval]="5"
+                                  type="datetime"></mat-datetimepicker>
+              <input [matDatetimepicker]="tanggal_mulai"
+                     autocomplete="false" formControlName="tanggal_mulai" matInput required>
+              <mat-error *ngIf="reactiveForm2.get('tanggal_mulai')?.errors?.required">
+                {{'validations.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <mat-form-field>
+              <mat-placeholder>Tanggal Mulai</mat-placeholder>
+              <mat-datetimepicker-toggle [for]="tanggal_selesai" matSuffix>
+              </mat-datetimepicker-toggle>
+              <mat-datetimepicker #tanggal_selesai [openOnFocus]="true" startView="month"
+                                  [timeInterval]="5"
+                                  type="datetime"></mat-datetimepicker>
+              <input [matDatetimepicker]="tanggal_selesai"
+                     autocomplete="false" formControlName="tanggal_selesai" matInput required>
+              <mat-error *ngIf="reactiveForm2.get('tanggal_selesai')?.errors?.required">
+                {{'validations.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.lt-sm="100">
+        <div fxLayout="row wrap" class="matero-row">
+          <div class="matero-col" fxFlex="100" fxFlex.gt-xs="100" fxFlex.gt-sm="100"
+               fxFlex.gt-md="100">
+            <mat-card>
+              <div class="text-center">
+                <div class="" *ngIf="imageURL && imageURL !== ''">
+                  <img class="m-b-8" [src]="imageURL" alt="" width="50%">
+                </div>
+
+                <button button mat-flat-button color="primary" (click)="fileInput.click()">
+                  <span>{{labelButton}}</span>
+                  <input #fileInput type="file" (change)="uploadFileEvt($event)"
+                         style="display: none;" />
+                </button>
+              </div>
+              <mat-nav-list class="m-x--16 m-b--16 m-t-16">
+                <mat-divider inset></mat-divider>
+                <a mat-list-item>
+                  <mat-icon class="icon-20 m-r-8">account_circle</mat-icon> Logo
+                </a>
+              </mat-nav-list>
+            </mat-card>
+          </div>
+
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.lt-sm="100" class="matero-col">
+        <div fxLayout="row wrap" fxLayoutGap="8px grid">
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <mat-form-field>
+              <mat-placeholder>Tanggal Aktif</mat-placeholder>
+              <mat-datetimepicker-toggle [for]="tanggal_tayang" matSuffix>
+              </mat-datetimepicker-toggle>
+              <mat-datetimepicker #tanggal_tayang [openOnFocus]="true" startView="month"
+                                  [timeInterval]="5"
+                                  type="datetime"></mat-datetimepicker>
+              <input [matDatetimepicker]="tanggal_tayang"
+                     autocomplete="false" formControlName="tanggal_tayang" matInput required>
+              <mat-error *ngIf="reactiveForm2.get('tanggal_tayang')?.errors?.required">
+                {{'validations.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <mat-form-field>
+              <mat-placeholder>Tanggal Non Aktif</mat-placeholder>
+              <mat-datetimepicker-toggle [for]="tanggal_non_tayang" matSuffix>
+              </mat-datetimepicker-toggle>
+              <mat-datetimepicker #tanggal_non_tayang [openOnFocus]="true" startView="month"
+                                  [timeInterval]="5"
+                                  type="datetime"></mat-datetimepicker>
+              <input [matDatetimepicker]="tanggal_non_tayang"
+                     autocomplete="false" formControlName="tanggal_non_tayang" matInput required>
+              <mat-error *ngIf="reactiveForm2.get('tanggal_non_tayang')?.errors?.required">
+                {{'validations.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex="100" fxFlex.lt-sm="100" [hidden]="flag == 'universitas' ? false: true">
+        <mat-form-field>
+          <mat-label>Universitas</mat-label>
+          <mtx-select [items]="dataUniversitas" formControlName="universitas_id"
+                      bindLabel="nama" bindValue="id" (change)="changeUniversitas($event)"
+                      [appendTo]="'app-admin-layout'">
+          </mtx-select>
+          <mat-error *ngIf="reactiveForm2.get('universitas_id').invalid">
+            {{'validations.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100" fxFlex.lt-sm="100" [hidden]="flag == 'fakultas' ? false: true">
+        <mat-form-field>
+          <mat-label>Fakultas</mat-label>
+          <mtx-select [items]="dataFakultas" formControlName="fakultas_id"
+                      bindLabel="nama" bindValue="id" (change)="changeFakultas($event)"
+                      [appendTo]="'app-admin-layout'">
+          </mtx-select>
+          <mat-error *ngIf="reactiveForm2.get('fakultas_id').invalid">
+            {{'validations.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100" fxFlex.lt-sm="100" [hidden]="flag == 'prodi' ? false: true">
+        <mat-form-field>
+          <mat-label>Prodi</mat-label>
+          <mtx-select [items]="dataProdi" formControlName="prodi_id"
+                      bindLabel="nama" bindValue="id" (change)="changeProdi($event)"
+                      [appendTo]="'app-admin-layout'">
+          </mtx-select>
+          <mat-error *ngIf="reactiveForm2.get('prodi_id').invalid">
+            {{'validations.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <button (click)="batal()" mat-raised-button color="primary"
+            class="m-t-8 m-r-8">Batal</button>
+    <button mat-raised-button color="accent" type="submit" (click)="onSave()"
+            class="m-t-8">Simpan</button>
+  </form>
+</mat-card>

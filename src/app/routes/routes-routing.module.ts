@@ -23,6 +23,7 @@ const routes: Routes = [
         loadChildren: () => import('./sessions/sessions.module').then(m => m.SessionsModule),
       },
   { path: 'master', loadChildren: () => import('./master/master.module').then(m => m.MasterModule) },
+  { path: 'agenda', loadChildren: () => import('./agenda/agenda.module').then(m => m.AgendaModule) },
     ],
   },
   {

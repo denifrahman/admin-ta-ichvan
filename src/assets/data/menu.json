@@ -35,13 +35,14 @@
           "route": "prodi",
           "name": "Prodi",
           "type": "link"
-        },
-        {
-          "route": "agenda",
-          "name": "Agenda",
-          "type": "link"
         }
       ]
+    },
+    {
+      "route": "agenda/agenda-list",
+      "name": "Agenda",
+      "icon": "event",
+      "type": "link"
     }
   ]
 }
