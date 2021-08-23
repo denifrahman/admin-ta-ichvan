@@ -46,6 +46,7 @@ export class AgendaAgendaAgendaEditComponent implements OnInit {
       prodi_id: [],
       universitas_id: [],
       cover: ['', [Validators.required]],
+      deskripsi: ['', [Validators.required]],
     });
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.flag !== undefined) {
@@ -82,7 +83,8 @@ export class AgendaAgendaAgendaEditComponent implements OnInit {
         fakultas_id: result.data['fakultas_id'],
         prodi_id: result.data['prodi_id'],
         universitas_id: result.data['universitas_id'],
-        cover: result.data['cover']
+        cover: result.data['cover'],
+        deskripsi: result.data['deskripsi']
       });
       this.imageURL = this.reactiveForm2.value.cover;
     });
@@ -131,6 +133,7 @@ export class AgendaAgendaAgendaEditComponent implements OnInit {
       formData.append('tanggal_mulai', this.reactiveForm2.value.tanggal_mulai);
       formData.append('tanggal_selesai', this.reactiveForm2.value.tanggal_selesai);
       formData.append('kode', this.reactiveForm2.value.kode);
+      formData.append('deskripsi', this.reactiveForm2.value.deskripsi);
       if(this.reactiveForm2.value.fakultas_id != null){
         formData.append('fakultas_id', this.reactiveForm2.value.fakultas_id);
       }

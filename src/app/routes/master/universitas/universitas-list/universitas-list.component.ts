@@ -99,21 +99,7 @@ export class MasterUniversitasUniversitasListComponent implements OnInit {
         width: '250px',
         field: 'nama',
       },
-      {
-        header: 'Opsi',
-        field: 'id',
-        minWidth: 50,
-        width: '50px',
-        type: 'button',
-        buttons: [
-          {
-            type: 'icon',
-            icon: 'edit',
-            tooltip: 'Ubah',
-            click: record => this.edit(record),
-          },
-        ],
-      },
+
     ];
   }
   renderTableDetailProdi() {
@@ -124,21 +110,7 @@ export class MasterUniversitasUniversitasListComponent implements OnInit {
         width: '250px',
         field: 'nama',
       },
-      {
-        header: 'Opsi',
-        field: 'id',
-        minWidth: 50,
-        width: '50px',
-        type: 'button',
-        buttons: [
-          {
-            type: 'icon',
-            icon: 'edit',
-            tooltip: 'Ubah',
-            click: record => this.edit(record),
-          }
-        ],
-      },
+
     ];
   }
   remove(record): void {

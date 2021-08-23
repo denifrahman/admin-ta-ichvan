@@ -114,6 +114,8 @@ export class AgendaAgendaAgendaListComponent implements OnInit {
     }
   }
   edit(record: any): void {
+    console.log(record.id);
+
     if (record.m_universita != null) {
       this.route.navigateByUrl('agenda/agenda-edit?id=' + record.id + '&' + 'nama=' + record.m_universita.nama + '&' + 'flag=universitas');
     }

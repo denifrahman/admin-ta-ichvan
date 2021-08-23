@@ -3,5 +3,5 @@ export const environment = {
   baseUrl: '',
   useHash: false,
   hmr: false,
-  API:'http://localhost:3000/api/v1'
+  API: 'https://api.titikkumpul.com/api/v1'
 };

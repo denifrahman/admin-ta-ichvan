@@ -18,7 +18,7 @@
 </section>
 
 <ng-template #logoTmpl let-row let-index="index" let-col="colDef"
-             style="background-color:rgb(211, 108, 125)">
+             style="background-color: rgb(211, 108, 125);">
   <div *ngIf="row.photos.length != 0">
     <img [src]="row.photos[0].link" alt="avatar" width="150" class="matero-avatar">
   </div>
@@ -38,7 +38,7 @@
                (page)="getNextPage($event)">
 </mat-paginator>
 <ng-template #expansionDetail let-row>
-  <html style="width: 100%">
+  <html style="width: 100%;">
 
   <mtx-grid [data]="row.m_fakultas"
             [columns]="columnDetailFakultas"
@@ -51,7 +51,7 @@
   </html>
 </ng-template>
 <ng-template #expansionDetailProdi let-row>
-  <html style="width: 100%">
+  <html style="width: 100%;">
   <mtx-grid [data]="row.m_prodis"
             [columns]="columnDetailProdi"
             [loading]="isLoading"

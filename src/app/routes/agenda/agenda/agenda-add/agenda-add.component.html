@@ -51,7 +51,7 @@
           </div>
           <div fxFlex="50" fxFlex.lt-sm="100">
             <mat-form-field>
-              <mat-placeholder>Tanggal Mulai</mat-placeholder>
+              <mat-placeholder>Tanggal Selesai</mat-placeholder>
               <mat-datetimepicker-toggle [for]="tanggal_selesai" matSuffix>
               </mat-datetimepicker-toggle>
               <mat-datetimepicker #tanggal_selesai [openOnFocus]="true" startView="month"
@@ -94,6 +94,16 @@
           </div>
         </div>
       </div>
+      <div fxFlex="100" fxFlex.lt-sm="100">
+        <mat-form-field>
+          <mat-label>Deskripsi</mat-label>
+          <textarea matInput placeholder="Deskripsi" formControlName="deskripsi"
+                 required></textarea>
+          <mat-error *ngIf="reactiveForm2.get('deskripsi').invalid">
+            {{'validations.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+      </div>
       <div fxFlex="100" fxFlex.lt-sm="100" class="matero-col">
         <div fxLayout="row wrap" fxLayoutGap="8px grid">
           <div fxFlex="50" fxFlex.lt-sm="100">
@@ -109,7 +119,7 @@
               <mat-error *ngIf="reactiveForm2.get('tanggal_tayang')?.errors?.required">
                 {{'validations.required' | translate}}
               </mat-error>
-              <mat-error *ngIf="reactiveForm2.get('tanggal_mulai')?.errors?.matDatepickerMin">min
+              <mat-error *ngIf="reactiveForm2.get('tanggal_tayang')?.errors?.matDatepickerMin">min
               </mat-error>
             </mat-form-field>
           </div>
@@ -126,7 +136,7 @@
               <mat-error *ngIf="reactiveForm2.get('tanggal_non_tayang')?.errors?.required">
                 {{'validations.required' | translate}}
               </mat-error>
-              <mat-error *ngIf="reactiveForm2.get('tanggal_mulai')?.errors?.matDatepickerMin">min
+              <mat-error *ngIf="reactiveForm2.get('tanggal_non_tayang')?.errors?.matDatepickerMin">min
               </mat-error>
             </mat-form-field>
           </div>
